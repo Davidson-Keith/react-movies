@@ -6,10 +6,12 @@ function App() {
   const [myDate, myDateUpdate] = useState(new Date());
 
   useEffect(() => {
-    const intervalID = setInterval(() => {
+    // Equivalent to componentDidMount() - create the interval
+    const intervalId = setInterval(() => {
       myDateUpdate(new Date());
     }, 1000);
-    return () => clearInterval(intervalID);
+    // Equivalent to componentWillUnmount() - destroy the interval
+    return () => clearInterval(intervalId);
   });
 
   return (
