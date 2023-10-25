@@ -30,7 +30,7 @@ export default function ConditionalsComponents() {
     <>
       <h1>Conditionals If Example</h1>
       <div>Rate this site</div>
-      <SelectNumber maxValue={5}/>
+      <SelectNumber maxValue={5} currentValue={rating} onSelected={setRating}/>
       <div>Your rating: {rating}</div>
       <div>{displayResult()}</div>
     </>
