@@ -1,16 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 
 export default function Events() {
-  let canSEE = true;
+  const [canSee, setCanSee ] = useState(false);
+  const [textVal, setTextVal] = useState('');
 
   const handleCheckBoxChanged = () => {
-    canSEE = !canSEE; // doesn't work. Need to use state.
+    setCanSee(!canSee);
   };
 
   const handleKeyUp = ({e}: { e: React.KeyboardEvent<HTMLInputElement> }) => {
-    // console.log(`The following key was pressed: ${e.key}`); // or e.currentTarget.value
-    console.log(e.currentTarget.value); // the entire text input content
-    // console.log(e.key); // just the single key is output
+    setTextVal(e.currentTarget.value);
   };
 
   return (
@@ -20,7 +19,7 @@ export default function Events() {
         <input type="checkbox" onChange={handleCheckBoxChanged}/>
       </div>
       <div>
-        {canSEE ? <div>You are seeing the secret</div> : <div>You are not allowed to see the secret</div>}
+        {canSee ? <div>Checked: {textVal}</div> : <div>Not checked</div>}
       </div>
       <div>
         <button onClick={() => {
