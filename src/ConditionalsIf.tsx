@@ -1,6 +1,5 @@
 import {useState} from "react";
 import Simple from "./Simple";
-// import {valueOf} from "react-scripts";
 
 export default function ConditionalsIf() {
   const [rating, setRating] = useState(5);
