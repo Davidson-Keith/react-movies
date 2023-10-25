@@ -17,3 +17,7 @@ interface SelectNumberProps {
   currentValue: number;
   onSelected(value: number): void;
 }
+
+SelectNumber.defaultProps = {
+  maxValue: 5
+}
