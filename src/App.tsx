@@ -1,16 +1,14 @@
-import React, {useEffect, useState} from 'react';
-// import logo from './logo.svg';
+// import React, {useEffect, useState} from 'react';
 import './App.css';
-import UseEffectExample from "./UseEffectExample";
+import DisplayGrade from "./ErrorBoundaries/DisplayGrade";
+import ErrorBoundary from "./ErrorBoundaries/ErrorBoundary";
+import ErrorBoundaryApp from "./ErrorBoundaries/ErrorBoundaryApp";
 
 function App() {
-  const [hide, setHide] = useState(false);
-
-  return (
-    <>
-      <input type="checkbox" onChange={() => setHide(!hide)}/> Hide
-      {hide ? <div>hidden</div> : <UseEffectExample/>}
-    </>
+  return(
+  <>
+    <ErrorBoundaryApp/>
+  </>
   )
 }
 
