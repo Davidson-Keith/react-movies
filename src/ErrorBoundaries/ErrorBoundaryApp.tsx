@@ -8,9 +8,9 @@ export default function ErrorBoundaryApp() {
   return (
     <>
       {grades.map((grade, index) =>
-        <ErrorBoundary key={index} errorUI={<h3>There was an error displaying the grade</h3>}>
+        // <ErrorBoundary key={index} errorUI={<h3>There was an error displaying the grade</h3>}>
           <DisplayGrade grade={grade} />
-        </ErrorBoundary>
+        // </ErrorBoundary>
       )}
     </>
   )

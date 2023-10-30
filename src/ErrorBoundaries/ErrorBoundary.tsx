@@ -24,9 +24,8 @@ class ErrorBoundary extends React.Component<errorBoundaryProps, errorBoundarySta
         return <h3>{this.state.message}</h3>
       }
     } else{
-      return this.props.children;
-      // return this.props;
-      // return (<></>)
+      // return this.props.children;
+      return (<></>)
     }
   }
 }

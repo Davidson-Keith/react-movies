@@ -3,11 +3,12 @@ import './App.css';
 import DisplayGrade from "./ErrorBoundaries/DisplayGrade";
 import ErrorBoundary from "./ErrorBoundaries/ErrorBoundary";
 import ErrorBoundaryApp from "./ErrorBoundaries/ErrorBoundaryApp";
+import UseContextApp from "./UseContextExample/UseContextApp";
 
 function App() {
   return(
   <>
-    <ErrorBoundaryApp/>
+    <UseContextApp/>
   </>
   )
 }
