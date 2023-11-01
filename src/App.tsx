@@ -33,7 +33,7 @@ function App() {
           }
         ]
       });
-    }, 1500);
+    }, 1000);
     return () => clearTimeout(timerId);
   });
 
