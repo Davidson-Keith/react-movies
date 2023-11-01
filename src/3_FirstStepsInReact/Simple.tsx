@@ -6,7 +6,7 @@ export default function Simple() {
   return (
     <div>
       <h1>Hi mate!</h1>
-      <h2>Up and rolling...</h2>
+      <h2 className="red">Up and rolling...</h2>
     </div>
   )
 }
