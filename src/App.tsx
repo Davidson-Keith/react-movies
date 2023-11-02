@@ -1,5 +1,4 @@
 import './App.css';
-import IndividualMovie from "./Movies/IndividualMovie";
 import {landingPageDTO, movieDTO} from "./Movies/movies.model";
 import MoviesList from "./Movies/MoviesList";
 import {useEffect, useState} from "react";

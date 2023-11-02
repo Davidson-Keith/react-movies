@@ -1,8 +1,5 @@
 import {ReactElement} from "react";
-import {resolveObjectURL} from "buffer";
 import Loading from "./Loading";
-import css from "../Movies/MoviesList.module.css";
-import IndividualMovie from "../Movies/IndividualMovie";
 
 export default function GenericList(props: genericListProps) {
   if (!props.list) {
