@@ -2,7 +2,7 @@ import '../App.css';
 import Menu from "./Menu";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {routes} from "./routes-config";
-import configureValidations from "../forms/Validations";
+import configureValidations from "../utils/forms/Validations";
 
 configureValidations();
 
