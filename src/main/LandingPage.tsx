@@ -1,13 +1,13 @@
 import {useEffect, useState} from "react";
 import {landingPageDTO} from "../movies/movies.model";
-import {testData} from "../movies/movies.testdata";
+import {testDataMovies} from "../testData/movies.testdata";
 import MoviesList from "../movies/MoviesList";
 
 export default function LandingPage() {
   const [movies, setMovies] = useState<landingPageDTO>({});
 
   useEffect(() => {
-    const timerId = setTimeout(() => setMovies(testData), 1000);
+    const timerId = setTimeout(() => setMovies(testDataMovies), 1000);
     return () => clearTimeout(timerId);
   });
 

@@ -1,4 +1,4 @@
-export const testData = {
+export const testDataMovies = {
   inTheaters: [
     {
       id: 1,
