@@ -21,7 +21,7 @@ export default function ActorForm(props: actorFormProps) {
       >
         {(formikProps) => (
           <Form>
-            <TextField label="Name" field="name"/>
+            <TextField displayName="Name" field="name"/>
             <DateField field="dateOfBirth" displayName="Date of Birth"/>
             <ImageField field="picture" displayName="Picture" imageURL={props.model.pictureURL}/>
             <MarkdownField displayName="Biography" field="biography"/>
