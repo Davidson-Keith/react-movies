@@ -1,7 +1,5 @@
 import {ChangeEvent, useState} from "react";
-import {Simulate} from "react-dom/test-utils";
-import error = Simulate.error;
-import {useFormik, useFormikContext} from "formik";
+import {useFormikContext} from "formik";
 
 export default function ImageField(props: imageFieldProps) {
   const [imageBase64, setImageBase64] = useState('');
@@ -46,7 +44,7 @@ export default function ImageField(props: imageFieldProps) {
         {imageBase64 ?
           <div>
             <div style={divStyle}>
-              <img style={imgStyle} src={imageBase64} alt="selected image"/>
+              <img style={imgStyle} src={imageBase64} alt="selected"/>
             </div>
           </div>
           : null
@@ -54,7 +52,7 @@ export default function ImageField(props: imageFieldProps) {
         {imageUrl ?
           <div>
             <div style={divStyle}>
-              <img style={imgStyle} src={imageUrl} alt="selected image"/>
+              <img style={imgStyle} src={imageUrl} alt="selected"/>
             </div>
           </div>
           : null
