@@ -5,3 +5,11 @@ export const testDataGenres: genreDTO[] = [
   {id: 2, name: 'Comedy'},
   {id: 2, name: 'Action'},
 ]
+
+export const testDataSelectedGenres: genreDTO[] = [
+  {id: 1, name: 'Drama'},
+]
+export const testDataNonSelectedGenres: genreDTO[] = [
+  {id: 2, name: 'Comedy'},
+  {id: 2, name: 'Action'},
+]

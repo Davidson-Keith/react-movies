@@ -1,3 +1,5 @@
+import {movieCreationDTO} from "../movies/movies.model";
+
 export const testDataMovies = {
   inTheaters: [
     {
@@ -21,4 +23,12 @@ export const testDataMovies = {
       poster: 'https://upload.wikimedia.org/wikipedia/en/9/9f/Midnight_in_Paris_Poster.jpg'
     }
   ]
+}
+
+export const testDataCreateMovie: movieCreationDTO = {
+  title: 'No time To Die',
+  inTheaters: true,
+  posterURL: 'https://upload.wikimedia.org/wikipedia/en/f/fe/No_Time_to_Die_poster.jpg',
+  trailer: 'Sux as usual',
+  releaseDate: new Date('2019-01-01T00:00:00'),
 }
