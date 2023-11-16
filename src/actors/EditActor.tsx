@@ -1,5 +1,5 @@
 import ActorForm from "./ActorForm";
-import {testDataActors} from "../testData/actors.testdata";
+import {testDataActors} from "../utils/testData/actors.testdata";
 
 export default function EditActor() {
   return (

@@ -1,5 +1,5 @@
 import TheaterForm from "./TheaterForm";
-import {testDataTheaters} from "../testData/theaters.testdata";
+import {testDataTheaters} from "../utils/testData/theaters.testdata";
 
 export default function EditTheater() {
   return (

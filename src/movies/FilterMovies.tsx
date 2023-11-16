@@ -1,5 +1,5 @@
 import {Field, Form, Formik} from "formik";
-import {testDataGenres} from "../testData/genres.testdata";
+import {testDataGenres} from "../utils/testData/genres.testdata";
 import Button from "../utils/Button";
 
 export default function FilterMovies() {

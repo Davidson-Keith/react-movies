@@ -10,12 +10,23 @@ import CheckBoxField from "../utils/forms/CheckBoxField";
 import MultipleSelector, {multipleSelectorModel} from "../utils/forms/MultipleSelector";
 import {useState} from "react";
 import {genreDTO} from "../genres/genres.model";
+import {theaterDTO} from "../theaters/theater.model";
 
 export default function MovieForm(props: movieFormProps) {
-  const [selectedGenres, setSelectedGenres] = useState(mapToModel(props.selectedGenres));
-  const [nonSelectedGenres, setNonSelectedGenres] = useState(mapToModel(props.nonSelectedGenres));
+  const [selectedGenres, setSelectedGenres] = useState(mapDTOToMultipleSelectorModel(props.selectedGenres));
+  const [nonSelectedGenres, setNonSelectedGenres] = useState(mapDTOToMultipleSelectorModel(props.nonSelectedGenres));
+  const [selectedTheaters, setSelectedTheaters] = useState(mapDTOToMultipleSelectorModel(props.selectedTheaters));
+  const [nonSelectedTheaters, setNonSelectedTheaters] = useState(mapDTOToMultipleSelectorModel(props.nonSelectedTheaters));
 
-  function mapToModel(items: { id: number, name: string }[]): multipleSelectorModel[] {
+  // Converts an array of id-name pairs of either genreDTO's, or theaterDTO's to and array of key-value pairs of the
+  // MultipleSelector component's selected and non-selected lists.
+  // E.g., converts a genreDTO[] to a multipleSelectorModel[], or:
+  // {id: number, name: string}[] =>
+  // {key: number, value: string}[]
+  // E.g., converts a theaterDTO[] to a multipleSelectorModel[], or:
+  // {id: number, name: string, latitude?: number, longitude?: number}[] =>
+  // {key: number, value: string}[]
+  function mapDTOToMultipleSelectorModel(items: { id: number, name: string }[]): multipleSelectorModel[] {
     return items.map(item => {
       return {key: item.id, value: item.name}
     })
@@ -24,7 +35,11 @@ export default function MovieForm(props: movieFormProps) {
   return (
     <Formik
       initialValues={props.model}
-      onSubmit={props.onSubmit}
+      onSubmit={(values, actions) => {
+        values.genresIds = selectedGenres.map(item=> item.key)
+        values.theaterIds = selectedTheaters.map(item=> item.key)
+        props.onSubmit(values, actions)
+      }}
       validationSchema={Yup.object({
         title: Yup.string().required('Title is required').firstLetterUppercase()
       })}
@@ -46,6 +61,15 @@ export default function MovieForm(props: movieFormProps) {
               setNonSelectedGenres(nonSelected);
             }}
           />
+          <MultipleSelector
+            displayName="Theaters"
+            selected={selectedTheaters}
+            nonSelected={nonSelectedTheaters}
+            onChange={(selected, nonSelected) => {
+              setSelectedTheaters(selected);
+              setNonSelectedTheaters(nonSelected);
+            }}
+          />
 
           <Button disabled={formikProps.isSubmitting} type="submit">Save Changes</Button>
           <Link className="btn btn-secondary ms-3" to="/genres">Cancel</Link>
@@ -62,4 +86,39 @@ interface movieFormProps {
 
   selectedGenres: genreDTO[];
   nonSelectedGenres: genreDTO[];
+  selectedTheaters: theaterDTO[];
+  nonSelectedTheaters: theaterDTO[];
 }
+
+// export interface movieCreationDTO {
+//   title: string;
+//   inTheaters: boolean;
+//   trailer:string;
+//   releaseDate?:Date;
+//   poster?: File;
+//   posterURL?: string;
+//   genresIds?:number[];
+//   actorIds?:number[];
+//   theaterIds?:number[];
+// }
+// From movies.model.d.ts
+
+// export interface multipleSelectorModel {
+//   key: number;
+//   value: string;
+// }
+// From MultipleSelector.tsx
+
+// export interface genreDTO {
+//   id: number;
+//   name: string;
+// }
+// From genres.model.d.ts
+
+// export interface theaterDTO {
+//   id: number;
+//   name: string;
+//   latitude?: number;
+//   longitude?: number;
+// }
+// From theaters.model.d.ts

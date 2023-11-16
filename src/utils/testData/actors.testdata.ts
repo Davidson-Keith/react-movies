@@ -1,4 +1,4 @@
-import {actorDTO} from "../actors/actors.model";
+import {actorDTO} from "../../actors/actors.model";
 
 
 export const testDataActors: actorDTO[] = [

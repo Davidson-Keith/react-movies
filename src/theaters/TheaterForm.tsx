@@ -37,6 +37,7 @@ export default function TheaterForm(props: theaterFormProps) {
               coordinates={transformCoordinates()}
             />
           </div>
+
           <Button
             disabled={formikProps.isSubmitting}
             type="submit"
@@ -54,4 +55,17 @@ interface theaterFormProps {
   onSubmit(values: theaterCreationDTO, action: FormikHelpers<theaterCreationDTO>): void;
 }
 
+// export interface theaterCreationDTO {
+//   name: string;
+//   latitude?: number;
+//   longitude?: number;
+// }
+// From theaters.model.d.ts
 
+// export interface theaterDTO {
+//   id: number;
+//   name: string;
+//   latitude?: number;
+//   longitude?: number;
+// }
+// From theaters.model.d.ts

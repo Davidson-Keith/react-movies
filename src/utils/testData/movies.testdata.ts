@@ -1,4 +1,4 @@
-import {movieCreationDTO} from "../movies/movies.model";
+import {movieCreationDTO} from "../../movies/movies.model";
 
 export const testDataMovies = {
   inTheaters: [

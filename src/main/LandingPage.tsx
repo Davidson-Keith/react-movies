@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {landingPageDTO} from "../movies/movies.model";
-import {testDataMovies} from "../testData/movies.testdata";
+import {testDataMovies} from "../utils/testData/movies.testdata";
 import MoviesList from "../movies/MoviesList";
 
 export default function LandingPage() {

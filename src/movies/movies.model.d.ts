@@ -2,6 +2,9 @@ export interface movieDTO {
   id: number;
   title: string;
   poster: string;
+  genresIds?:number[];
+  actorIds?:number[];
+  theaterIds?:number[];
 }
 
 export interface movieCreationDTO {
@@ -11,6 +14,9 @@ export interface movieCreationDTO {
   releaseDate?:Date;
   poster?: File;
   posterURL?: string;
+  genresIds?:number[];
+  actorIds?:number[];
+  theaterIds?:number[];
 }
 
 export interface landingPageDTO {
