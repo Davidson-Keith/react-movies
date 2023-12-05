@@ -2,13 +2,13 @@ import {Form, Formik, FormikHelpers} from "formik";
 import TextField from "../utils/forms/TextField";
 import Button from "../utils/Button";
 import {Link} from "react-router-dom";
-import {actorCreationDTO} from "./actors.model";
+import {ActorCreationDTO} from "./actors.model";
 import * as Yup from 'yup';
 import DateField from "../utils/forms/DateField";
 import ImageField from "../utils/forms/ImageField";
 import MarkdownField from "../utils/forms/MarkdownField";
 
-export default function ActorForm(props: actorFormProps) {
+export default function ActorForm(props: ActorFormProps) {
   return (
     <>
       <Formik
@@ -37,8 +37,8 @@ export default function ActorForm(props: actorFormProps) {
   )
 }
 
-interface actorFormProps {
-  model: actorCreationDTO;
+interface ActorFormProps {
+  model: ActorCreationDTO;
 
-  onSubmit(values: actorCreationDTO, action: FormikHelpers<actorCreationDTO>): void;
+  onSubmit(values: ActorCreationDTO, action: FormikHelpers<ActorCreationDTO>): void;
 }

@@ -1,7 +1,4 @@
-import {actorDTO} from "../../actors/actors.model";
-import {theaterCreationDTO, theaterDTO} from "../../theaters/theater.model";
-import {genreDTO} from "../../genres/genres.model";
-
+import {theaterDTO} from "../../theaters/theater.model";
 
 export const testDataTheaters: theaterDTO[] = [
   {

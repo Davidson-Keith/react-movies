@@ -13,12 +13,14 @@ react-movies is the front end.
 ## Tech
 
 React.js  
-Tachyons  
-Node.js  
-PostgreSQL  
-express.js  
-bcrypt  
-Heroku
+React Router
+Formik - React Forms
+Yup - validation
+react-markdown - lib for adding markdown format to text inputs
+Bootstrap
+Leaflet - Map display
+
+
 
 ## TODO - Outstanding Issues
 
