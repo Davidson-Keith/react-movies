@@ -1,4 +1,4 @@
-import {movieCreationDTO} from "../../movies/movies.model";
+import {MovieCreationDTO} from "../../movies/movies.model";
 
 export const testDataMovies = {
   inTheaters: [
@@ -25,7 +25,7 @@ export const testDataMovies = {
   ]
 }
 
-export const testDataCreateMovie: movieCreationDTO = {
+export const testDataCreateMovie: MovieCreationDTO = {
   title: 'No time To Die',
   inTheaters: true,
   posterURL: 'https://upload.wikimedia.org/wikipedia/en/f/fe/No_Time_to_Die_poster.jpg',

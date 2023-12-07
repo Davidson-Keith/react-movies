@@ -1,5 +1,5 @@
 import {Form, Formik, FormikHelpers} from "formik";
-import {movieCreationDTO} from "./movies.model";
+import {MovieCreationDTO} from "./movies.model";
 import * as Yup from 'yup';
 import TextField from "../utils/forms/TextField";
 import Button from "../utils/Button";
@@ -9,15 +9,17 @@ import ImageField from "../utils/forms/ImageField";
 import CheckBoxField from "../utils/forms/CheckBoxField";
 import MultipleSelector, {multipleSelectorModel} from "../utils/forms/MultipleSelector";
 import {useState} from "react";
-import {genreDTO} from "../genres/genres.model";
-import {theaterDTO} from "../theaters/theater.model";
+import {GenreDTO} from "../genres/genres.model";
+import {TheaterDTO} from "../theaters/theater.model";
 import TypeAheadActors from "../actors/TypeAheadActors";
+import {ActorMovieDTO} from "../actors/actors.model";
 
-export default function MovieForm(props: movieFormProps) {
+export default function MovieForm(props: MovieFormProps) {
   const [selectedGenres, setSelectedGenres] = useState(mapDTOToMultipleSelectorModel(props.selectedGenres));
   const [nonSelectedGenres, setNonSelectedGenres] = useState(mapDTOToMultipleSelectorModel(props.nonSelectedGenres));
   const [selectedTheaters, setSelectedTheaters] = useState(mapDTOToMultipleSelectorModel(props.selectedTheaters));
   const [nonSelectedTheaters, setNonSelectedTheaters] = useState(mapDTOToMultipleSelectorModel(props.nonSelectedTheaters));
+  const [selectedActors, setSelectedActors] = useState(props.selectedActors);
 
   // Converts an array of id-name pairs of either genreDTO's, or theaterDTO's to and array of key-value pairs of the
   // MultipleSelector component's selected and non-selected lists.
@@ -37,8 +39,8 @@ export default function MovieForm(props: movieFormProps) {
     <Formik
       initialValues={props.model}
       onSubmit={(values, actions) => {
-        values.genresIds = selectedGenres.map(item=> item.key)
-        values.theaterIds = selectedTheaters.map(item=> item.key)
+        values.genresIds = selectedGenres.map(item => item.key)
+        values.theaterIds = selectedTheaters.map(item => item.key)
         props.onSubmit(values, actions)
       }}
       validationSchema={Yup.object({
@@ -71,7 +73,34 @@ export default function MovieForm(props: movieFormProps) {
               setNonSelectedTheaters(nonSelected);
             }}
           />
-          <TypeAheadActors displayName='Actors' actors={[]}/>
+
+          <TypeAheadActors
+            displayName='Actors'
+            actors={selectedActors}
+            onAdd={actors => {
+              setSelectedActors(actors);
+            }}
+            onRemove={actor => {
+              const actors = selectedActors.filter(x => x !== actor);
+              setSelectedActors(actors);
+            }}
+            listUI={(actor: ActorMovieDTO) =>
+              <>
+                {actor.name}{' - '}
+                <input
+                  placeholder="Character"
+                  type="text"
+                  value={actor.character}
+                  onChange={e => {
+                    const index = selectedActors.findIndex(x => x.id === actor.id);
+                    const actors = [...selectedActors];
+                    actors[index].character = e.currentTarget.value;
+                    setSelectedActors(actors);
+                  }}
+                />
+              </>
+            }
+          />
 
           <Button disabled={formikProps.isSubmitting} type="submit">Save Changes</Button>
           <Link className="btn btn-secondary ms-3" to="/genres">Cancel</Link>
@@ -81,16 +110,18 @@ export default function MovieForm(props: movieFormProps) {
   )
 }
 
-interface movieFormProps {
-  model: movieCreationDTO;
+interface MovieFormProps {
+  model: MovieCreationDTO;
 
-  onSubmit(values: movieCreationDTO, actions: FormikHelpers<movieCreationDTO>): void;
+  onSubmit(values: MovieCreationDTO, actions: FormikHelpers<MovieCreationDTO>): void;
 
-  selectedGenres: genreDTO[];
-  nonSelectedGenres: genreDTO[];
-  selectedTheaters: theaterDTO[];
-  nonSelectedTheaters: theaterDTO[];
+  selectedGenres: GenreDTO[];
+  nonSelectedGenres: GenreDTO[];
+  selectedTheaters: TheaterDTO[];
+  nonSelectedTheaters: TheaterDTO[];
+  selectedActors: ActorMovieDTO[];
 }
+
 
 // export interface movieCreationDTO {
 //   title: string;

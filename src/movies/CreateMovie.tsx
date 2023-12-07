@@ -1,12 +1,12 @@
 import MovieForm from "./MovieForm";
-import {genreDTO} from "../genres/genres.model";
+import {GenreDTO} from "../genres/genres.model";
 import {testDataGenres} from "../utils/testData/genres.testdata";
-import {theaterDTO} from "../theaters/theater.model";
+import {TheaterDTO} from "../theaters/theater.model";
 import {testDataTheaters} from "../utils/testData/theaters.testdata";
 
 export default function CreateMovie() {
-  const nonSelectedGenres: genreDTO[] = testDataGenres;
-  const nonSelectedTheaters: theaterDTO[] = testDataTheaters;
+  const nonSelectedGenres: GenreDTO[] = testDataGenres;
+  const nonSelectedTheaters: TheaterDTO[] = testDataTheaters;
 
   return (
     <>
@@ -19,6 +19,7 @@ export default function CreateMovie() {
         nonSelectedGenres={nonSelectedGenres}
         selectedTheaters={[]}
         nonSelectedTheaters={nonSelectedTheaters}
+        selectedActors={[]}
       />
 
     </>

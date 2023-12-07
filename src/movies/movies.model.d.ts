@@ -7,7 +7,7 @@ export interface movieDTO {
   theaterIds?:number[];
 }
 
-export interface movieCreationDTO {
+export interface MovieCreationDTO {
   title: string;
   inTheaters: boolean;
   trailer:string;

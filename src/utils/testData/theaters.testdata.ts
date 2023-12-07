@@ -1,6 +1,6 @@
-import {theaterDTO} from "../../theaters/theater.model";
+import {TheaterDTO} from "../../theaters/theater.model";
 
-export const testDataTheaters: theaterDTO[] = [
+export const testDataTheaters: TheaterDTO[] = [
   {
     id: 1,
     name: 'Event Cinemas, Pacific Fair',
@@ -45,7 +45,7 @@ export const testDataTheaters: theaterDTO[] = [
   },
 ]
 
-export const testDataSelectedTheaters: theaterDTO[] = [
+export const testDataSelectedTheaters: TheaterDTO[] = [
   {
     id: 2,
     name: 'Event Cinemas, Robina',
@@ -59,7 +59,7 @@ export const testDataSelectedTheaters: theaterDTO[] = [
     longitude: 153.4456125
   },
 ]
-export const testDataNonNonSelectedTheaters: theaterDTO[] = [
+export const testDataNonNonSelectedTheaters: TheaterDTO[] = [
   {
     id: 1,
     name: 'Event Cinemas, Pacific Fair',
