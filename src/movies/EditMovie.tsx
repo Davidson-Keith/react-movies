@@ -5,6 +5,9 @@ import {testDataSelectedGenres, testDataNonSelectedGenres} from "../utils/testDa
 import {testDataSelectedTheaters, testDataNonNonSelectedTheaters} from "../utils/testData/theaters.testdata";
 import {TheaterDTO} from "../theaters/theater.model";
 
+/*
+url: movies/edit/[id]
+ */
 export default function EditMovie() {
   const selectedGenres: GenreDTO[] = testDataSelectedGenres;
   const nonSelectedGenres: GenreDTO[] = testDataNonSelectedGenres;

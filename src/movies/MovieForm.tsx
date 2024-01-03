@@ -11,7 +11,7 @@ import MultipleSelector, {multipleSelectorModel} from "../utils/forms/MultipleSe
 import {useState} from "react";
 import {GenreDTO} from "../genres/genres.model";
 import {TheaterDTO} from "../theaters/theater.model";
-import TypeAheadActors from "../actors/TypeAheadActors";
+import TypeAheadMovieActors from "../actors/TypeAheadMovieActors";
 import {ActorMovieDTO} from "../actors/actors.model";
 
 export default function MovieForm(props: MovieFormProps) {
@@ -21,7 +21,7 @@ export default function MovieForm(props: MovieFormProps) {
   const [nonSelectedTheaters, setNonSelectedTheaters] = useState(mapDTOToMultipleSelectorModel(props.nonSelectedTheaters));
   const [selectedActors, setSelectedActors] = useState(props.selectedActors);
 
-  // Converts an array of id-name pairs of either genreDTO's, or theaterDTO's to and array of key-value pairs of the
+  // Converts an array of id-name pairs of either genreDTO's, or theaterDTO's to an array of key-value pairs of the
   // MultipleSelector component's selected and non-selected lists.
   // E.g., converts a genreDTO[] to a multipleSelectorModel[], or:
   // {id: number, name: string}[] =>
@@ -74,7 +74,7 @@ export default function MovieForm(props: MovieFormProps) {
             }}
           />
 
-          <TypeAheadActors
+          <TypeAheadMovieActors
             displayName='Actors'
             actors={selectedActors}
             onAdd={actors => {
@@ -84,7 +84,7 @@ export default function MovieForm(props: MovieFormProps) {
               const actors = selectedActors.filter(x => x !== actor);
               setSelectedActors(actors);
             }}
-            listUI={(actor: ActorMovieDTO) =>
+            actorListUI={(actor: ActorMovieDTO) =>
               <>
                 {actor.name}{' - '}
                 <input
