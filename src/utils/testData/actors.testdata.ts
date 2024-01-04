@@ -46,13 +46,13 @@ export const testDataActorMovies: ActorMovieDTO[] = [
   {
     id: 6,
     name: 'Owen Wilson',
-    character: '',
+    character: 'Francis',
     picture: 'https://upload.wikimedia.org/wikipedia/commons/4/49/Owen_Wilson_Cannes_2011.jpg'
   },
   {
     id: 7,
     name: 'Adrien Brody',
-    character: '',
+    character: 'Peter',
     picture: 'https://upload.wikimedia.org/wikipedia/commons/3/35/Adrien_Brody-61584.jpg'
   },
 ]

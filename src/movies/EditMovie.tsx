@@ -4,6 +4,8 @@ import {GenreDTO} from "../genres/genres.model";
 import {testDataSelectedGenres, testDataNonSelectedGenres} from "../utils/testData/genres.testdata";
 import {testDataSelectedTheaters, testDataNonNonSelectedTheaters} from "../utils/testData/theaters.testdata";
 import {TheaterDTO} from "../theaters/theater.model";
+import {ActorMovieDTO} from "../actors/actors.model";
+import {testDataActorMovies} from "../utils/testData/actors.testdata";
 
 /*
 url: movies/edit/[id]
@@ -13,6 +15,7 @@ export default function EditMovie() {
   const nonSelectedGenres: GenreDTO[] = testDataNonSelectedGenres;
   const selectedTheaters: TheaterDTO[] = testDataSelectedTheaters;
   const nonSelectedTheaters: TheaterDTO[] = testDataNonNonSelectedTheaters;
+  const selectedActors: ActorMovieDTO[] = testDataActorMovies;
 
   return (
     <>
@@ -25,7 +28,7 @@ export default function EditMovie() {
         nonSelectedGenres={nonSelectedGenres}
         selectedTheaters={selectedTheaters}
         nonSelectedTheaters={nonSelectedTheaters}
-        selectedActors={[]}
+        selectedActors={selectedActors}
       />
 
     </>
