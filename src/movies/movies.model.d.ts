@@ -15,8 +15,11 @@ export interface MovieCreationDTO {
   poster?: File;
   posterURL?: string;
   genresIds?:number[];
-  actorIds?:number[];
   theaterIds?:number[];
+  actors?: ActorMovieDTO[];
+
+  // Not used?
+  actorIds?:number[];
 }
 
 export interface landingPageDTO {

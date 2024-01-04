@@ -43,5 +43,17 @@ export const testDataActorMovies: ActorMovieDTO[] = [
     character: '',
     picture: 'https://upload.wikimedia.org/wikipedia/commons/2/21/Johnny_Depp_2020.jpg'
   },
+  {
+    id: 6,
+    name: 'Owen Wilson',
+    character: '',
+    picture: 'https://upload.wikimedia.org/wikipedia/commons/4/49/Owen_Wilson_Cannes_2011.jpg'
+  },
+  {
+    id: 7,
+    name: 'Adrien Brody',
+    character: '',
+    picture: 'https://upload.wikimedia.org/wikipedia/commons/3/35/Adrien_Brody-61584.jpg'
+  },
 ]
 
